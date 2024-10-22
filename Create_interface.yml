@@ -1,0 +1,22 @@
+---
+  tasks:
+  #Create interface, keep exisitng configuration
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_l3_interfaces:
+        config:
+          - name: GigabitEthernet0/0
+            ipv4:
+              - address: 192.168.0.1/24
+               secondary: true
+          - name: GigabitEthernet0/2
+            ipv4:
+              - address: 192.168.0.2/24
+          - name: GigabitEthernet3.100
+            ipv4:
+              - address: 192.168.0.3/24
+          - name: Vlan901
+            autostate: false
+            ipv4:
+              - source_interface:
+                 name: Loopback1
+        state: merged
