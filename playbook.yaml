@@ -1,6 +1,5 @@
 ---
 -name: Interface
- hosts: TEST-RTR01
  tasks:
  #Create interface, keep exisitng configuration
    - name: Merge provided configuration with device configuration
